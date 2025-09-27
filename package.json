@@ -38,8 +38,10 @@
       "react-is": "19.0.0"
     }
   },
+  "dependencies": {
+    "@manypkg/cli": "^0.23.0"
+  },
   "devDependencies": {
-    "@manypkg/cli": "^0.23.0",
     "@turbo/gen": "^2.4.2",
     "cross-env": "^7.0.3",
     "prettier": "^3.5.1",

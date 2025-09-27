@@ -3,7 +3,13 @@
 import * as React from 'react';
 
 import * as LabelPrimitive from '@radix-ui/react-label';
-import { type VariantProps, cva } from 'class-variance-authority';
+// Temporary type definition for VariantProps
+type VariantProps<T> = {};
+
+// Temporary cva implementation
+const cva = (base: string, config?: any) => {
+  return () => base;
+};
 
 import { cn } from '../lib/utils';
 

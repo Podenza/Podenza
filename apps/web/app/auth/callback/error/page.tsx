@@ -7,8 +7,8 @@ import { Alert, AlertDescription, AlertTitle } from '@kit/ui/alert';
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
 
-import pathsConfig from '~/config/paths.config';
-import { withI18n } from '~/lib/i18n/with-i18n';
+import pathsConfig from '../../../../config/paths.config';
+import { withI18n } from '../../../../lib/i18n/with-i18n';
 
 interface AuthCallbackErrorPageProps {
   searchParams: Promise<{

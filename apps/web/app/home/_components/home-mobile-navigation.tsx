@@ -15,7 +15,7 @@ import {
 } from '@kit/ui/dropdown-menu';
 import { Trans } from '@kit/ui/trans';
 
-import { navigationConfig } from '~/config/navigation.config';
+import { navigationConfig } from '../../../config/navigation.config';
 
 /**
  * Mobile navigation for the home page

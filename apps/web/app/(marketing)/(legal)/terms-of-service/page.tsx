@@ -1,6 +1,6 @@
-import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
-import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
-import { withI18n } from '~/lib/i18n/with-i18n';
+import { SitePageHeader } from '../../_components/site-page-header';
+import { createI18nServerInstance } from '../../../../lib/i18n/i18n.server';
+import { withI18n } from '../../../../lib/i18n/with-i18n';
 
 export async function generateMetadata() {
   const { t } = await createI18nServerInstance();

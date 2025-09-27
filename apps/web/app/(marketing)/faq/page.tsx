@@ -5,8 +5,8 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
 
-import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
-import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
+import { SitePageHeader } from '../_components/site-page-header';
+import { createI18nServerInstance } from '../../../lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
 
 export const generateMetadata = async () => {

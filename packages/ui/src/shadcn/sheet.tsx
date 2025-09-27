@@ -4,7 +4,19 @@ import * as React from 'react';
 
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import { type VariantProps, cva } from 'class-variance-authority';
+// Temporary type definition for VariantProps
+type VariantProps<T> = {
+  side?: 'top' | 'bottom' | 'left' | 'right';
+};
+
+// Temporary cva implementation
+const cva = (base: string, config: any) => {
+  return (props: any) => {
+    const side = props?.side || 'right';
+    const sideClass = config.variants?.side?.[side] || '';
+    return `${base} ${sideClass}`;
+  };
+};
 
 import { cn } from '../lib/utils';
 

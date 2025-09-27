@@ -4,7 +4,14 @@ import * as React from 'react';
 
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
-import { cva } from 'class-variance-authority';
+// Temporary cva implementation
+const cva = (base: string, config: any) => {
+  return (props: any) => {
+    const variant = props?.variant || 'default';
+    const variantClass = config.variants?.variant?.[variant] || '';
+    return `${base} ${variantClass}`;
+  };
+};
 
 import { cn } from '../lib/utils';
 

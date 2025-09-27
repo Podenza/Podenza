@@ -6,7 +6,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { Slot } from '@radix-ui/react-slot';
-import { VariantProps, cva } from 'class-variance-authority';
+// Temporary type definition for VariantProps
+type VariantProps<T> = {
+  variant?: string;
+  size?: string;
+};
+
+// Temporary cva implementation
+const cva = (base: string, config: any) => {
+  return (props: any) => {
+    const variant = props?.variant || 'default';
+    const size = props?.size || 'default';
+    const variantClass = config.variants?.variant?.[variant] || '';
+    const sizeClass = config.variants?.size?.[size] || '';
+    return `${base} ${variantClass} ${sizeClass}`;
+  };
+};
 import { ChevronDown, PanelLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

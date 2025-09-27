@@ -6,8 +6,8 @@ import { CsrfError, createCsrfProtect } from '@edge-csrf/nextjs';
 import { checkRequiresMultiFactorAuthentication } from '@kit/supabase/check-requires-mfa';
 import { createMiddlewareClient } from '@kit/supabase/middleware-client';
 
-import appConfig from '~/config/app.config';
-import pathsConfig from '~/config/paths.config';
+import appConfig from 'config/app.config';
+import pathsConfig from 'config/paths.config';
 
 const CSRF_SECRET_COOKIE = 'csrfSecret';
 const NEXT_ACTION_HEADER = 'next-action';

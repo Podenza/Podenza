@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node fix-imports.js)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

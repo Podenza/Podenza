@@ -7,7 +7,7 @@ import {
   parseAcceptLanguageHeader,
 } from '@kit/i18n/server';
 
-import featuresFlagConfig from '~/config/feature-flags.config';
+import featuresFlagConfig from '../config/feature-flags.config';
 import {
   I18N_COOKIE_NAME,
   getI18nSettings,

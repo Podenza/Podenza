@@ -3,9 +3,9 @@ import {
   BorderedNavigationMenuItem,
 } from '@kit/ui/bordered-navigation-menu';
 
-import { AppLogo } from '~/components/app-logo';
-import { ProfileAccountDropdownContainer } from '~/components/personal-account-dropdown-container';
-import { navigationConfig } from '~/config/navigation.config';
+import { AppLogo } from '../../components/app-logo';
+import { ProfileAccountDropdownContainer } from '../../components/personal-account-dropdown-container';
+import { navigationConfig } from '../../config/navigation.config';
 
 export function HomeMenuNavigation() {
   const routes = navigationConfig.routes.reduce<

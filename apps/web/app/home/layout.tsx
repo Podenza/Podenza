@@ -10,10 +10,10 @@ import {
 } from '@kit/ui/page';
 import { SidebarProvider } from '@kit/ui/shadcn-sidebar';
 
-import { AppLogo } from '~/components/app-logo';
-import { navigationConfig } from '~/config/navigation.config';
-import { withI18n } from '~/lib/i18n/with-i18n';
-import { requireUserInServerComponent } from '~/lib/server/require-user-in-server-component';
+import { AppLogo } from '../components/app-logo';
+import { navigationConfig } from '../config/navigation.config';
+import { withI18n } from '../lib/i18n/with-i18n';
+import { requireUserInServerComponent } from '../lib/server/require-user-in-server-component';
 
 // home imports
 import { HomeMenuNavigation } from './_components/home-menu-navigation';

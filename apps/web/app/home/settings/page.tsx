@@ -3,11 +3,11 @@ import { use } from 'react';
 import { PersonalAccountSettingsContainer } from '@kit/accounts/personal-account-settings';
 import { PageBody } from '@kit/ui/page';
 
-import authConfig from '~/config/auth.config';
-import pathsConfig from '~/config/paths.config';
-import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
-import { withI18n } from '~/lib/i18n/with-i18n';
-import { requireUserInServerComponent } from '~/lib/server/require-user-in-server-component';
+import authConfig from '../../config/auth.config';
+import pathsConfig from '../../config/paths.config';
+import { createI18nServerInstance } from '../../lib/i18n/i18n.server';
+import { withI18n } from '../../lib/i18n/with-i18n';
+import { requireUserInServerComponent } from '../../lib/server/require-user-in-server-component';
 
 const callbackPath = pathsConfig.auth.callback;
 

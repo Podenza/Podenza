@@ -1,8 +1,20 @@
 import * as React from 'react';
 
-import { type VariantProps, cva } from 'class-variance-authority';
-
 import { cn } from '../lib/utils';
+
+// Temporary type definition for VariantProps
+type VariantProps<T> = {
+  variant?: 'default' | 'destructive' | 'success' | 'warning' | 'info';
+};
+
+// Temporary cva implementation
+const cva = (base: string, config: any) => {
+  return (props: any) => {
+    const variant = props?.variant || 'default';
+    const variantClass = config.variants?.variant?.[variant] || '';
+    return `${base} ${variantClass}`;
+  };
+};
 
 const alertVariants = cva(
   '[&>svg]:text-foreground relative flex w-full flex-col gap-y-2 rounded-lg border bg-linear-to-r px-4 py-3.5 text-sm [&>svg]:absolute [&>svg]:top-4 [&>svg]:left-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7',

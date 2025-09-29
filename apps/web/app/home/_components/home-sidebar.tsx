@@ -21,7 +21,7 @@ export function HomeSidebar(props: {
   return (
     <Sidebar
       collapsible={'icon'}
-      className="w-64 bg-white border-r border-[var(--border-medium)]"
+      className="w-64 bg-white border-r border-border"
     >
       <SidebarHeader className="h-16 justify-center p-4 group-data-[collapsible=icon]:p-2">
         <HomeSidebarLogo />
@@ -34,7 +34,7 @@ export function HomeSidebar(props: {
         />
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-[var(--border-light)] p-6 group-data-[collapsible=icon]:p-2">
+      <SidebarFooter className="border-t border-border p-6 group-data-[collapsible=icon]:p-2">
         <ProfileAccountDropdownContainer
           user={props.user}
           account={props.account}

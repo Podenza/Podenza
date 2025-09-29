@@ -15,18 +15,8 @@ function LogoImage({
     // Solo mostrar la "P" cuando esté colapsado
     return (
       <div className={cn("flex items-center justify-center", className)}>
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ backgroundColor: 'var(--primary)' }}
-        >
-          <span
-            className="font-bold text-xl"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              color: 'var(--primary-foreground)',
-              letterSpacing: '-0.02em'
-            }}
-          >
+        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+          <span className="font-heading font-bold text-xl text-primary-foreground tracking-tight">
             P
           </span>
         </div>
@@ -37,29 +27,12 @@ function LogoImage({
   // Logo completo cuando esté expandido
   return (
     <div className={cn("flex items-center gap-2.5", className)}>
-      <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center"
-        style={{ backgroundColor: 'var(--primary)' }}
-      >
-        <span
-          className="font-bold text-xl"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            color: 'var(--primary-foreground)',
-            letterSpacing: '-0.02em'
-          }}
-        >
+      <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+        <span className="font-heading font-bold text-xl text-primary-foreground tracking-tight">
           P
         </span>
       </div>
-      <span
-        className="font-bold text-[22px] transition-opacity duration-300"
-        style={{
-          fontFamily: 'var(--font-heading)',
-          color: 'var(--foreground)',
-          letterSpacing: '-0.02em'
-        }}
-      >
+      <span className="font-heading font-bold text-[22px] text-foreground tracking-tight transition-opacity duration-300">
         PODENZA
       </span>
     </div>

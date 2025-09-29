@@ -7,9 +7,7 @@
 
 @layer base {
     :root {
-        /* PODENZA TYPOGRAPHY SYSTEM */
-        --font-heading: 'Circular Std', 'Circular', -apple-system, BlinkMacSystemFont, sans-serif;
-        --font-sans: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        /* PODENZA TYPOGRAPHY SYSTEM - Align with fonts.ts configuration */
 
         /* PODENZA BASE COLORS (60% - Backgrounds & Structure) */
         --background: #FAFAFA;          /* General app background */

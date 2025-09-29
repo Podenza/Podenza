@@ -17,6 +17,7 @@ PS: the documentation for this kit is still being updated, so please check back 
 
 ## What's Included
 
+
 ### Core Architecture
 - 🏗️ Next.js 15 + Turborepo monorepo setup
 - 🎨 Shadcn UI components with TailwindCSS v4

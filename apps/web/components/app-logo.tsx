@@ -10,10 +10,32 @@ function LogoImage({
   width?: number;
 }) {
   return (
-    <div
-      className={cn(`w-[80px] lg:w-[95px] flex items-center justify-center font-bold text-xl text-primary dark:text-white`, className)}
-    >
-      PODENZA
+    <div className={cn("flex items-center gap-2.5", className)}>
+      <div
+        className="w-10 h-10 rounded-xl flex items-center justify-center"
+        style={{ backgroundColor: 'var(--primary)' }}
+      >
+        <span
+          className="font-bold text-xl"
+          style={{
+            fontFamily: 'var(--font-heading)',
+            color: 'var(--primary-foreground)',
+            letterSpacing: '-0.02em'
+          }}
+        >
+          P
+        </span>
+      </div>
+      <span
+        className="font-bold text-[22px]"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          color: 'var(--foreground)',
+          letterSpacing: '-0.02em'
+        }}
+      >
+        PODENZA
+      </span>
     </div>
   );
 }

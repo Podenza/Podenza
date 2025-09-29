@@ -32,6 +32,12 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 
   *,
@@ -45,5 +51,78 @@
   input::placeholder,
   textarea::placeholder {
     color: theme(--color-muted-foreground);
+  }
+}
+
+@layer utilities {
+  /* PODENZA Typography Utilities */
+  .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .font-body {
+    font-family: var(--font-sans);
+  }
+
+  /* PODENZA Color Utilities */
+  .text-podenza-primary {
+    color: var(--primary);
+  }
+
+  .bg-podenza-primary {
+    background-color: var(--primary);
+  }
+
+  .text-podenza-action {
+    color: var(--accent);
+  }
+
+  .bg-podenza-action {
+    background-color: var(--accent);
+  }
+
+  /* PODENZA Border Radius Utilities */
+  .rounded-podenza {
+    border-radius: var(--radius);
+  }
+
+  .rounded-podenza-lg {
+    border-radius: 1rem;
+  }
+
+  .rounded-podenza-xl {
+    border-radius: 1.25rem;
+  }
+
+  /* PODENZA Button Styles */
+  .btn-podenza-primary {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    transition: opacity 0.2s ease;
+  }
+
+  .btn-podenza-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-podenza-secondary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-podenza-secondary:hover {
+    background-color: var(--chart-5);
   }
 }

@@ -21,6 +21,11 @@ export default async function RootLayout({
 
   return (
     <html lang={language} className={className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link href="https://fonts.cdnfonts.com/css/circular-std" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet" />
+      </head>
       <body>
         <RootProviders theme={theme} lang={language}>
           {children}

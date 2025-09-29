@@ -1,8 +1,8 @@
 {
-  "name": "Makerkit",
-  "short_name": "makerkit",
-  "theme_color": "#fff",
-  "background_color": "#fff",
+  "name": "PODENZA",
+  "short_name": "podenza",
+  "theme_color": "#E7FF8C",
+  "background_color": "#FAFAFA",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",

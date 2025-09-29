@@ -22,20 +22,20 @@ function Home() {
       <div className={'container mx-auto'}>
         <Hero
           pill={
-            <Pill label={'New'}>
-              <span>The leading SaaS Starter Kit for ambitious developers</span>
+            <Pill label={'Nuevo'}>
+              <span>La plataforma de colaboración empresarial más innovadora</span>
             </Pill>
           }
           title={
             <>
-              <span>The ultimate SaaS Starter</span>
-              <span>for your next project</span>
+              <span>Impulsa la colaboración</span>
+              <span>y el dinamismo empresarial</span>
             </>
           }
           subtitle={
             <span>
-              Build and Ship a SaaS faster than ever before with the next-gen
-              SaaS Starter Kit. Ship your SaaS in days, not months.
+              PODENZA conecta equipos, optimiza procesos y acelera el crecimiento.
+              La plataforma que transforma la manera de colaborar en tu empresa.
             </span>
           }
           cta={<MainCallToActionButton />}
@@ -48,7 +48,7 @@ function Home() {
               width={3558}
               height={2222}
               src={`/images/dashboard.webp`}
-              alt={`App Image`}
+              alt={`PODENZA Dashboard`}
             />
           }
         />
@@ -62,47 +62,47 @@ function Home() {
             heading={
               <>
                 <b className="font-semibold dark:text-white">
-                  The ultimate SaaS Starter Kit
+                  La plataforma empresarial definitiva
                 </b>
                 .{' '}
                 <span className="text-muted-foreground font-normal">
-                  Unleash your creativity and build your SaaS faster than ever
-                  with Makerkit.
+                  PODENZA transforma la colaboración y dinamiza el trabajo en equipo
+                  con innovación constante.
                 </span>
               </>
             }
             icon={
               <FeatureShowcaseIconContainer>
                 <LayoutDashboard className="h-5" />
-                <span>All-in-one solution</span>
+                <span>Solución integral</span>
               </FeatureShowcaseIconContainer>
             }
           >
             <FeatureGrid>
               <FeatureCard
                 className={'relative col-span-2 overflow-hidden'}
-                label={'Beautiful Dashboard'}
-                description={`Makerkit provides a beautiful dashboard to manage your SaaS business.`}
+                label={'Dashboard Intuitivo'}
+                description={`PODENZA ofrece un dashboard elegante y funcional para gestionar la colaboración empresarial.`}
               />
 
               <FeatureCard
                 className={
                   'relative col-span-2 w-full overflow-hidden lg:col-span-1'
                 }
-                label={'Authentication'}
-                description={`Makerkit provides a variety of providers to allow your users to sign in.`}
+                label={'Equipos Conectados'}
+                description={`Conecta y sincroniza equipos distribuidos con herramientas de colaboración avanzadas.`}
               />
 
               <FeatureCard
                 className={'relative col-span-2 overflow-hidden lg:col-span-1'}
-                label={'Multi Tenancy'}
-                description={`Multi tenant memberships for your SaaS business.`}
+                label={'Procesos Optimizados'}
+                description={`Automatiza y optimiza flujos de trabajo para maximizar la productividad.`}
               />
 
               <FeatureCard
                 className={'relative col-span-2 overflow-hidden'}
-                label={'Billing'}
-                description={`Makerkit supports multiple payment gateways to charge your customers.`}
+                label={'Análisis en Tiempo Real'}
+                description={`PODENZA proporciona insights y métricas para impulsar el crecimiento empresarial.`}
               />
             </FeatureGrid>
           </FeatureShowcase>

@@ -18,20 +18,26 @@ export function HomeSidebar(props: {
   user: User;
 }) {
   return (
-    <Sidebar collapsible={'icon'}>
-      <SidebarHeader className={'h-16 justify-center'}>
-        <div className={'flex items-center justify-between space-x-2'}>
-          <div>
-            <AppLogo className={'max-w-full'} />
+    <Sidebar
+      collapsible={'icon'}
+      className="w-64 bg-white border-r border-[var(--border-medium)]"
+    >
+      <SidebarHeader className="h-16 justify-center p-4">
+        <div className="flex items-center justify-between space-x-2">
+          <div className="p-2">
+            <AppLogo className="max-w-full" />
           </div>
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
-        <SidebarNavigation config={navigationConfig} />
+      <SidebarContent className="px-4">
+        <SidebarNavigation
+          config={navigationConfig}
+          className="space-y-1"
+        />
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="border-t border-[var(--border-light)] p-6">
         <ProfileAccountDropdownContainer
           user={props.user}
           account={props.account}

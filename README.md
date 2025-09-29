@@ -343,3 +343,5 @@ No support is provided for this kit. Feel free to open an issue if you have any 
 For dedicated support, priority fixes, and advanced features, [check out our full version](https://makerkit.dev).
 
 Test
+
+test2

@@ -1,30 +1,23 @@
-/**
- * @description Podenza brand fonts configuration
- * Heading font: Circular Std for titles, logos, and headings
- * Body font: Sofia Pro for body text, navigation, and descriptions
- */
+import { Inter as SansFont } from 'next/font/google';
 
 /**
- * @sans (Sofia Pro)
- * @description Body font for text content, navigation, descriptions, buttons
+ * @sans
+ * @description Define here the sans font.
+ * By default, it uses the Inter font from Google Fonts.
  */
-const sans = {
+const sans = SansFont({
+  subsets: ['latin'],
   variable: '--font-sans',
-  style: {
-    fontFamily: "'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  },
-};
+  fallback: ['system-ui', 'Helvetica Neue', 'Helvetica', 'Arial'],
+  preload: true,
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 /**
- * @heading (Circular Std)
- * @description Heading font for titles, logos, numbers, and emphasis
+ * @heading
+ * @description Define here the heading font.
  */
-const heading = {
-  variable: '--font-heading',
-  style: {
-    fontFamily: "'Circular Std', 'Circular', -apple-system, BlinkMacSystemFont, sans-serif",
-  },
-};
+const heading = sans;
 
 // we export these fonts into the root layout
 export { sans, heading };

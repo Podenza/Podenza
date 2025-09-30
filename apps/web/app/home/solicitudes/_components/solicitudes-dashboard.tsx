@@ -332,7 +332,7 @@ export function SolicitudesDashboard() {
                           <button
                             className="p-2 rounded-lg hover:bg-accent/10 transition-colors group"
                             title="Editar"
-                            onClick={() => handleEditarSolicitud(sol)}
+                            onClick={() => handleEditarSolicitud(solicitud)}
                           >
                             <Edit className="w-4 h-4 text-muted-foreground group-hover:text-accent" />
                           </button>

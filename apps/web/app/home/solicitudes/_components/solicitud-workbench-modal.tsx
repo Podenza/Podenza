@@ -90,48 +90,48 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0 overflow-hidden">
-        <div className="flex flex-col h-full">
+      <DialogContent className="max-w-[98vw] max-h-[98vh] w-full h-full p-0 overflow-hidden">
+        <div className="flex flex-col h-full max-h-[98vh]">
           {/* Header Global */}
-          <div className="bg-card border-b border-border p-4 flex justify-between items-center sticky top-0 z-50">
-            <div className="flex items-center gap-4">
+          <div className="bg-card border-b border-border p-3 md:p-4 flex justify-between items-center sticky top-0 z-50 flex-shrink-0">
+            <div className="flex items-center gap-2 md:gap-4 min-w-0">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                  <span className="font-bold text-sm text-primary-foreground">P</span>
+                <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-primary flex items-center justify-center">
+                  <span className="font-bold text-xs md:text-sm text-primary-foreground">P</span>
                 </div>
-                <span className="font-bold text-lg">PODENZA</span>
+                <span className="font-bold text-sm md:text-lg hidden sm:block">PODENZA</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span>Solicitudes</span>
-                <ChevronRight className="w-4 h-4" />
-                <span className="text-foreground font-semibold">{solicitud.cliente}</span>
+              <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-muted-foreground min-w-0">
+                <span className="hidden sm:block">Solicitudes</span>
+                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 hidden sm:block" />
+                <span className="text-foreground font-semibold truncate">{solicitud.cliente}</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="relative p-2 cursor-pointer">
-                <Bell className="w-5 h-5 text-muted-foreground" />
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-accent text-accent-foreground text-xs font-semibold rounded-full flex items-center justify-center">
+            <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+              <div className="relative p-1 md:p-2 cursor-pointer">
+                <Bell className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-accent text-accent-foreground text-xs font-semibold rounded-full flex items-center justify-center">
                   3
                 </div>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-muted cursor-pointer hover:bg-muted/80">
+              <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-lg bg-muted cursor-pointer hover:bg-muted/80">
                 <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-xs font-semibold">
                   VR
                 </div>
                 <span className="text-sm font-medium">Valentina</span>
               </div>
-              <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)}>
+              <Button variant="ghost" size="sm" onClick={() => onOpenChange(false)} className="h-8 w-8 md:h-auto md:w-auto">
                 <X className="w-4 h-4" />
               </Button>
             </div>
           </div>
 
-          <div className="flex-1 overflow-auto">
-            <div className="max-w-7xl mx-auto p-6">
+          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            <div className="max-w-7xl mx-auto p-3 md:p-6">
               {/* Case Header */}
-              <Card className="mb-6">
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-6">
+              <Card className="mb-4 md:mb-6">
+                <CardContent className="p-4 md:p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6 mb-4 md:mb-6">
                     <div>
                       <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Cliente</div>
                       <div className="font-semibold text-foreground">{solicitud.cliente}</div>
@@ -165,10 +165,10 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                   </div>
 
                   {/* Progress Section */}
-                  <div className="bg-muted rounded-xl p-4">
-                    <div className="flex justify-between items-center mb-3">
-                      <h3 className="font-semibold text-foreground">Progreso del Proceso</h3>
-                      <span className="text-sm text-muted-foreground">
+                  <div className="bg-muted rounded-xl p-3 md:p-4">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
+                      <h3 className="font-semibold text-foreground text-sm md:text-base">Progreso del Proceso</h3>
+                      <span className="text-xs md:text-sm text-muted-foreground">
                         Paso {pasoActual} de {PASOS_PROCESO.length} • {progresoActual}% completado
                       </span>
                     </div>
@@ -180,47 +180,49 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                     </div>
 
                     {/* Steps Horizontales */}
-                    <div className="flex justify-between items-center relative">
-                      {PASOS_PROCESO.map((paso, index) => (
-                        <div key={paso.id} className="flex flex-col items-center relative flex-1">
-                          {index < PASOS_PROCESO.length - 1 && (
-                            <div className={`absolute top-4 left-1/2 right-0 h-0.5 ${
-                              paso.completado ? 'bg-primary' : 'bg-border'
-                            } transform translate-x-1/2`} />
-                          )}
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold relative z-10 ${
-                            paso.completado
-                              ? 'bg-primary text-primary-foreground'
-                              : paso.activo
-                                ? 'bg-accent text-accent-foreground'
-                                : 'bg-card border-2 border-border text-muted-foreground'
-                          }`}>
-                            {paso.completado ? <CheckCircle className="w-4 h-4" /> : paso.id}
+                    <div className="overflow-x-auto pb-2">
+                      <div className="flex justify-between items-center relative min-w-max px-4">
+                        {PASOS_PROCESO.map((paso, index) => (
+                          <div key={paso.id} className="flex flex-col items-center relative flex-1 min-w-[80px]">
+                            {index < PASOS_PROCESO.length - 1 && (
+                              <div className={`absolute top-3 md:top-4 left-1/2 right-0 h-0.5 ${
+                                paso.completado ? 'bg-primary' : 'bg-border'
+                              } transform translate-x-1/2`} />
+                            )}
+                            <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-semibold relative z-10 ${
+                              paso.completado
+                                ? 'bg-primary text-primary-foreground'
+                                : paso.activo
+                                  ? 'bg-accent text-accent-foreground'
+                                  : 'bg-card border-2 border-border text-muted-foreground'
+                            }`}>
+                              {paso.completado ? <CheckCircle className="w-3 h-3 md:w-4 md:h-4" /> : paso.id}
+                            </div>
+                            <span className={`text-xs mt-1 md:mt-2 text-center max-w-20 ${
+                              paso.activo ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                            }`}>
+                              {paso.label}
+                            </span>
                           </div>
-                          <span className={`text-xs mt-2 text-center max-w-20 ${
-                            paso.activo ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                          }`}>
-                            {paso.label}
-                          </span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
                 {/* Form Area */}
-                <div className="lg:col-span-2 space-y-6">
+                <div className="lg:col-span-2 space-y-4 md:space-y-6">
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-xl">Envío a Bancos</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-lg md:text-xl">Envío a Bancos</CardTitle>
                       <p className="text-sm text-muted-foreground">
                         Selecciona los bancos y adjunta la documentación requerida para continuar con el proceso de aprobación.
                       </p>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
                       {/* Alert Banner */}
                       <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3">
                         <AlertTriangle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -247,7 +249,7 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                       {/* Bancos Seleccionados */}
                       <div>
                         <h3 className="font-semibold mb-3">Bancos Seleccionados</h3>
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {['Davivienda', 'Occidente', 'Bancolombia', 'BBVA'].map((banco) => (
                             <div key={banco} className="flex items-center space-x-2">
                               <Checkbox
@@ -270,7 +272,7 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                       {/* Documentos Requeridos */}
                       <div>
                         <h3 className="font-semibold mb-3">Documentos Requeridos</h3>
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {[
                             { id: 'formulario', label: 'Formulario firmado' },
                             { id: 'extracto1', label: 'Extracto bancario 1' },
@@ -323,27 +325,27 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                   </Card>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4 border-t border-border">
-                    <Button variant="outline" className="gap-2">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border">
+                    <Button variant="outline" className="gap-2 order-3 sm:order-1" size="sm">
                       ← Volver
                     </Button>
-                    <Button variant="outline">
+                    <Button variant="outline" className="order-2 sm:order-2" size="sm">
                       Guardar Borrador
                     </Button>
-                    <Button className="btn-podenza-primary gap-2 flex-1">
+                    <Button className="btn-podenza-primary gap-2 flex-1 order-1 sm:order-3" size="sm">
                       Enviar a 2 Bancos →
                     </Button>
                   </div>
                 </div>
 
                 {/* Sidebar */}
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   {/* Resumen del Caso */}
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Resumen del Caso</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-sm md:text-base">Resumen del Caso</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-2 text-sm">
+                    <CardContent className="space-y-2 text-xs md:text-sm p-4 md:p-6">
                       {[
                         { label: 'Valor inmueble:', value: '$350.000.000' },
                         { label: 'Valor crédito:', value: solicitud.monto },
@@ -362,10 +364,10 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
 
                   {/* Estado por Banco */}
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Estado por Banco</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-sm md:text-base">Estado por Banco</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3">
+                    <CardContent className="space-y-3 p-4 md:p-6">
                       {BANCOS_ESTADO.map((banco, index) => (
                         <div key={index} className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                           <div className={`w-2 h-2 rounded-full ${
@@ -386,10 +388,10 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
 
                   {/* Actividad Reciente */}
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Actividad Reciente</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-sm md:text-base">Actividad Reciente</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3">
+                    <CardContent className="space-y-3 p-4 md:p-6">
                       {ACTIVIDAD_RECIENTE.map((actividad, index) => (
                         <div key={index} className="flex gap-3 text-sm">
                           <span className="text-muted-foreground min-w-12 text-xs">{actividad.hora}</span>
@@ -401,18 +403,18 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
 
                   {/* Acciones Rápidas */}
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Acciones Rápidas</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-sm md:text-base">Acciones Rápidas</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-2">
+                    <CardContent className="space-y-2 p-4 md:p-6">
                       {[
                         { icon: MessageSquare, label: 'Abrir chat WhatsApp' },
                         { icon: Phone, label: 'Llamar cliente' },
                         { icon: Mail, label: 'Enviar email' },
                         { icon: FileText, label: 'Agregar nota' },
                       ].map((accion, index) => (
-                        <Button key={index} variant="ghost" className="w-full justify-start gap-2 h-auto p-3 text-sm">
-                          <accion.icon className="w-4 h-4" />
+                        <Button key={index} variant="ghost" className="w-full justify-start gap-2 h-auto p-2 md:p-3 text-xs md:text-sm">
+                          <accion.icon className="w-3 h-3 md:w-4 md:h-4" />
                           {accion.label}
                         </Button>
                       ))}
@@ -421,17 +423,17 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
 
                   {/* Documentos */}
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-base">Documentos Adjuntos</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-sm md:text-base">Documentos Adjuntos</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-2">
+                    <CardContent className="space-y-2 p-4 md:p-6">
                       {DOCUMENTOS.map((doc, index) => (
-                        <div key={index} className="flex items-center gap-3 p-2 border border-border rounded-lg">
-                          <div className="w-8 h-8 bg-primary/10 rounded flex items-center justify-center">
-                            <FileText className="w-4 h-4 text-primary" />
+                        <div key={index} className="flex items-center gap-2 md:gap-3 p-2 border border-border rounded-lg">
+                          <div className="w-6 h-6 md:w-8 md:h-8 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
+                            <FileText className="w-3 h-3 md:w-4 md:h-4 text-primary" />
                           </div>
-                          <div className="flex-1">
-                            <div className="font-medium text-sm">{doc.nombre}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-xs md:text-sm truncate">{doc.nombre}</div>
                             <div className="text-xs text-muted-foreground">
                               {doc.subido ? `${doc.tamaño} • ${doc.tipo}` : 'No subido'}
                             </div>

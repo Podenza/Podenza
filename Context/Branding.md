@@ -1,693 +1,416 @@
-# PRD: Implementación de Branding Podenza en Template Makerkit
+# 🎨 SISTEMA DE BRANDING - PODENZA
 
-## 📋 Objetivo
-Transformar completamente el template de Makerkit aplicando la identidad visual de Podenza con un diseño minimalista, limpio y profesional que refleje los valores de colaboración, dinamismo e innovación de la marca.
-
----
-
-## 🎨 Sistema de Diseño
-
-### Paleta de Colores (Regla 60-30-10)
-
-#### 60% - Colores Base (Fondos y Estructura)
-```css
---background-primary: #FFFFFF;      /* Tarjetas y contenedores principales */
---background-secondary: #FAFAFA;    /* Fondo general de la aplicación */
---background-tertiary: #F3F4F6;     /* Fondos alternativos sutiles */
---border-light: #F3F4F6;            /* Bordes muy sutiles */
---border-medium: #E5E5E5;           /* Bordes estándar */
-```
-
-#### 30% - Color de Marca Principal (Acentos y Estados Activos)
-```css
---accent-primary: #E7FF8C;          /* Verde lima suave - Pantone 2295 C */
---accent-primary-hover: #DEFF70;    /* Estado hover del verde */
-```
-
-#### 10% - Color de Acción (CTAs y Elementos Críticos)
-```css
---action-primary: #FF931E;          /* Naranja - Pantone 1495 C */
---action-primary-hover: #FF8000;    /* Estado hover del naranja */
---action-secondary: #FFF4ED;        /* Naranja muy suave para fondos */
-```
-
-#### Colores de Texto
-```css
---text-primary: #2C3E2B;            /* Texto principal (casi negro con tinte verde) */
---text-secondary: #6B7280;          /* Texto secundario (gris medio) */
---text-tertiary: #9CA3AF;           /* Texto terciario (gris claro) */
-```
-
-#### Colores Adicionales del Manual (Referencia)
-```css
-/* Colores disponibles pero usar con moderación */
---brand-green-dark: #181A00;        /* Pantone Black 6 C - SOLO para casos especiales */
---brand-green-medium: #AFDB12;      /* Pantone 2290 C */
---brand-green-bright: #C9FF00;      /* Pantone 389 C */
-```
+## Información General
+Este documento define el **sistema de branding completo** de PODENZA, basado en la implementación actual en el archivo `shadcn-ui.css` y establece las directrices para mantener la consistencia visual en toda la plataforma.
 
 ---
 
-## 🔤 Sistema Tipográfico
+## 🎯 IDENTIDAD DE MARCA
 
-### Fuentes de Marca
+### **Concepto de Marca**
+**PODENZA** representa **poder y potencia** en el sector fintech colombiano, combinando:
+- **Confiabilidad** - Solidez en el manejo de créditos
+- **Innovación** - Tecnología de vanguardia
+- **Accesibilidad** - Democratización del acceso al crédito
+- **Transparencia** - Procesos claros y honestos
 
-#### Tipografía Principal - Smooth Circular / Circular Std
-**Uso:** Títulos, encabezados, números grandes, logo
-**Propósito:** Trazos redondos y orgánicos que simbolizan fluidez y conexión
-
-```css
-/* Implementación en CSS */
-@import url('https://fonts.cdnfonts.com/css/circular-std');
-
-.heading-font {
-  font-family: 'Circular Std', 'Circular', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.02em; /* Tracking ajustado para mejor legibilidad */
-}
-```
-
-**Escalas de uso:**
-- Logo: 700 weight, 20-22px
-- H1 (Page Title): 700 weight, 32px
-- H2 (Section Title): 700 weight, 22px
-- Números de métricas: 700 weight, 40px
-
-#### Tipografía Secundaria - Sofia Pro
-**Uso:** Cuerpo de texto, navegación, descripciones, botones
-**Propósito:** Simetría y equilibrio para contenido extenso
-
-```css
-/* Implementación en CSS */
-@import url('https://fonts.cdnfonts.com/css/sofia-pro');
-
-.body-font {
-  font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-```
-
-**Escalas de uso:**
-- Body Large: 500 weight, 15px
-- Body Medium: 500 weight, 14px
-- Body Small: 500 weight, 13px
-- Button Text: 600 weight, 15px
-- Navigation: 600 weight (active), 500 weight (inactive), 15px
+### **Valores de Marca**
+- **Eficiencia** - Procesos rápidos y optimizados
+- **Seguridad** - Protección de datos y transacciones
+- **Inclusión** - Acceso para todos los colombianos
+- **Sostenibilidad** - Crecimiento responsable
 
 ---
 
-## 🏗️ Componentes UI - Especificaciones Detalladas
+## 🎨 PALETA DE COLORES
 
-### 1. Sidebar (Navegación Lateral)
+### **Colores Primarios (Implementados)**
 
-```javascript
-// Estructura y estilos
-const SidebarSpecs = {
-  width: '256px', // w-64
-  background: '#FFFFFF',
-  borderRight: '1px solid #E5E5E5',
-  padding: {
-    container: '16px',
-    logo: '32px',
-    userProfile: '24px'
-  }
-}
+#### **Verde Podenza - Color Principal**
+```css
+--primary: #E7FF8C;             /* Pantone 2295 C - Verde lima brillante */
+--primary-foreground: #2C3E2B;  /* Texto sobre verde primary */
+```
+- **Uso**: Elementos de marca, navegación activa, highlights
+- **Significado**: Crecimiento, prosperidad, confianza
+- **Aplicación**: 60% de la interfaz (backgrounds principales)
 
-// Logo Section
-const LogoSpecs = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px'
-  },
-  icon: {
-    width: '40px',
-    height: '40px',
-    background: '#E7FF8C',
-    borderRadius: '12px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    fontFamily: 'Circular Std',
-    fontSize: '22px',
-    fontWeight: '700',
-    color: '#2C3E2B'
-  }
-}
+#### **Naranja Podenza - Color de Acción**
+```css
+--accent: #FF931E;              /* Pantone 1495 C - Naranja vibrante */
+--accent-foreground: #FFFFFF;   /* Texto sobre naranja */
+```
+- **Uso**: CTAs, botones principales, elementos interactivos
+- **Significado**: Energía, acción, conversión
+- **Aplicación**: 10% de la interfaz (elementos críticos)
 
-// Navigation Items
-const NavItemSpecs = {
-  default: {
-    padding: '12px 16px',
-    borderRadius: '12px',
-    color: '#6B7280',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '500',
-    iconStrokeWidth: 2
-  },
-  active: {
-    background: '#E7FF8C',
-    color: '#2C3E2B',
-    fontWeight: '600',
-    iconStrokeWidth: 2.5
-  },
-  hover: {
-    background: 'transparent',
-    opacity: 0.8
-  }
-}
+### **Colores Secundarios**
 
-// User Profile Section
-const UserProfileSpecs = {
-  container: {
-    borderTop: '1px solid #F3F4F6',
-    padding: '24px'
-  },
-  avatar: {
-    width: '44px',
-    height: '44px',
-    background: '#F3F4F6',
-    borderRadius: '50%',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '600',
-    color: '#6B7280'
-  },
-  name: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '14px',
-    fontWeight: '600',
-    color: '#2C3E2B'
-  },
-  email: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '13px',
-    color: '#9CA3AF'
-  }
-}
+#### **Verde Oscuro - Base Institucional**
+```css
+--foreground: #2C3E2B;          /* Verde oscuro corporativo */
+--sidebar-primary: #2C3E2B;     /* Elementos primarios de navegación */
+```
+- **Uso**: Textos principales, iconografía, elementos estructurales
+- **Significado**: Estabilidad, profesionalismo, confianza
+
+#### **Gris Neutro - Estructura**
+```css
+--background: #F5F5F5;          /* Fondo general de aplicación */
+--card: #FFFFFF;                /* Tarjetas y contenedores */
+--muted: #F0F0F0;              /* Fondos sutiles */
+--muted-foreground: #5A6B57;    /* Texto secundario */
 ```
 
-### 2. Header (Encabezado Principal)
-
-```javascript
-const HeaderSpecs = {
-  container: {
-    padding: '32px 40px',
-    background: '#FFFFFF',
-    borderBottom: '1px solid #F3F4F6'
-  },
-  title: {
-    fontFamily: 'Circular Std',
-    fontSize: '32px',
-    fontWeight: '700',
-    color: '#2C3E2B',
-    letterSpacing: '-0.02em',
-    marginBottom: '4px'
-  },
-  subtitle: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    color: '#6B7280'
-  },
-  ctaButton: {
-    background: '#FF931E',
-    color: '#FFFFFF',
-    padding: '12px 24px',
-    borderRadius: '12px',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '600',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    transition: 'opacity 0.2s',
-    hover: {
-      opacity: 0.9
-    }
-  }
-}
-```
-
-### 3. Cards (Tarjetas de Métricas)
-
-```javascript
-const CardSpecs = {
-  container: {
-    background: '#FFFFFF',
-    border: '1px solid #E5E5E5',
-    borderRadius: '16px',
-    padding: '28px'
-  },
-  icon: {
-    width: '48px',
-    height: '48px',
-    borderRadius: '12px',
-    // Alternar entre dos colores:
-    backgroundOptions: ['#E7FF8C', '#FFF4ED'],
-    iconColor: ['#2C3E2B', '#FF931E'] // corresponde al background
-  },
-  badge: {
-    background: '#E7FF8C',
-    color: '#2C3E2B',
-    padding: '6px 12px',
-    borderRadius: '9999px',
-    fontFamily: 'Sofia Pro',
-    fontSize: '13px',
-    fontWeight: '600'
-  },
-  label: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '14px',
-    fontWeight: '500',
-    color: '#6B7280',
-    marginBottom: '8px'
-  },
-  value: {
-    fontFamily: 'Circular Std',
-    fontSize: '40px',
-    fontWeight: '700',
-    color: '#2C3E2B',
-    letterSpacing: '-0.02em'
-  }
-}
-```
-
-### 4. Activity List (Lista de Actividades)
-
-```javascript
-const ActivityItemSpecs = {
-  container: {
-    padding: '16px 20px',
-    borderRadius: '12px',
-    transition: 'background-color 0.2s',
-    hover: {
-      background: '#FAFAFA'
-    }
-  },
-  avatar: {
-    width: '48px',
-    height: '48px',
-    borderRadius: '50%',
-    // Alternar colores:
-    backgroundOptions: ['#E7FF8C', '#FFF4ED'],
-    fontFamily: 'Sofia Pro',
-    fontSize: '14px',
-    fontWeight: '600',
-    color: '#2C3E2B'
-  },
-  title: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '600',
-    color: '#2C3E2B',
-    marginBottom: '2px'
-  },
-  subtitle: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '14px',
-    color: '#9CA3AF'
-  },
-  timestamp: {
-    fontFamily: 'Sofia Pro',
-    fontSize: '14px',
-    fontWeight: '500',
-    color: '#6B7280'
-  }
-}
-```
-
-### 5. Buttons (Botones)
-
-```javascript
-const ButtonSpecs = {
-  primary: {
-    background: '#FF931E',
-    color: '#FFFFFF',
-    padding: '12px 24px',
-    borderRadius: '12px',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '600',
-    hover: {
-      opacity: 0.9
-    }
-  },
-  secondary: {
-    background: '#E7FF8C',
-    color: '#2C3E2B',
-    padding: '12px 24px',
-    borderRadius: '12px',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '600',
-    hover: {
-      background: '#DEFF70'
-    }
-  },
-  ghost: {
-    background: 'transparent',
-    color: '#6B7280',
-    padding: '12px 24px',
-    borderRadius: '12px',
-    fontFamily: 'Sofia Pro',
-    fontSize: '15px',
-    fontWeight: '500',
-    hover: {
-      background: '#FAFAFA'
-    }
-  }
-}
+### **Paleta Extendida para Charts y Visualizaciones**
+```css
+--chart-1: #E7FF8C;             /* Verde primary */
+--chart-2: #FF931E;             /* Naranja accent */
+--chart-3: #AFDB12;             /* Verde medio */
+--chart-4: #FFF4ED;             /* Naranja suave */
+--chart-5: #DEFF70;             /* Verde hover */
 ```
 
 ---
 
-## 📐 Sistema de Espaciado
+---
 
-### Escala de Spacing
+## 🌙 MODO OSCURO
+
+### **Paleta Dark Mode**
 ```css
---space-xs: 4px;
---space-sm: 8px;
---space-md: 16px;
---space-lg: 24px;
---space-xl: 32px;
---space-2xl: 40px;
---space-3xl: 48px;
+.dark {
+  --background: #181A00;         /* Verde muy oscuro - exclusivo dark mode */
+  --foreground: #FFFFFF;         /* Texto claro */
+  --card: #2C3E2B;              /* Tarjetas en dark */
+  --primary: #E7FF8C;           /* Verde primary mantiene consistencia */
+  --accent: #FF931E;            /* Naranja accent mantiene consistencia */
+  --sidebar-background: #181A00; /* Sidebar oscuro */
+}
 ```
 
-### Aplicación de Espaciado
-- **Gap entre elementos pequeños:** 8px (space-sm)
-- **Gap entre secciones de card:** 20px
-- **Padding de containers:** 28-32px (space-xl)
-- **Margin entre secciones:** 40px (space-2xl)
+**Principios Dark Mode:**
+- Mantener colores de marca (**#E7FF8C** y **#FF931E**) consistentes
+- Usar **#181A00** como base para crear atmósfera de marca
+- Garantizar contraste suficiente (WCAG AA)
+- Transiciones suaves entre modos
 
 ---
 
-## 🎯 Border Radius System
+## 📝 TIPOGRAFÍA
 
+### **Jerarquía Tipográfica**
 ```css
---radius-sm: 8px;   /* Elementos pequeños, badges */
---radius-md: 12px;  /* Botones, nav items, iconos */
---radius-lg: 16px;  /* Cards, containers */
---radius-xl: 20px;  /* Modales, overlays */
---radius-full: 9999px; /* Avatares, pills */
+/* Sistema base implementado */
+--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+--font-heading: var(--font-sans);  /* Consistencia tipográfica */
 ```
+
+### **Aplicación de Tipografía**
+```css
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;       /* Tracking ajustado */
+  font-weight: 600;              /* Semibold para impacto */
+}
+
+/* Body Text */
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "rlig" 1, "calt" 1;  /* Ligaduras tipográficas */
+}
+```
+
+### **Escalas de Tamaño**
+- **H1**: 2.5rem (40px) - Títulos principales
+- **H2**: 2rem (32px) - Títulos de sección
+- **H3**: 1.5rem (24px) - Subtítulos
+- **H4**: 1.25rem (20px) - Títulos menores
+- **Body**: 1rem (16px) - Texto base
+- **Small**: 0.875rem (14px) - Texto secundario
 
 ---
 
-## 🔄 Estados Interactivos
+## 🎯 SISTEMA DE BOTONES
 
-### Hover States
+### **Botón Primario - Implementado**
 ```css
-/* Para botones principales */
-.button-primary:hover {
+.btn-podenza-primary {
+  background-color: var(--accent);     /* #FF931E */
+  color: var(--accent-foreground);     /* #FFFFFF */
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: var(--radius);        /* 0.75rem */
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-podenza-primary:hover {
   opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-
-/* Para navegación */
-.nav-item:hover:not(.active) {
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-/* Para items de lista */
-.list-item:hover {
-  background-color: #FAFAFA;
-  transition: background-color 0.2s ease;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 ```
 
-### Active States
+### **Botón Secundario - Implementado**
 ```css
-.nav-item.active {
-  background-color: #E7FF8C;
-  color: #2C3E2B;
+.btn-podenza-secondary {
+  background-color: var(--primary);    /* #E7FF8C */
+  color: var(--primary-foreground);    /* #2C3E2B */
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-podenza-secondary:hover {
+  background-color: var(--chart-5);    /* #DEFF70 */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+```
+
+### **Estados de Botones**
+- **Default**: Estado base con colores primarios
+- **Hover**: Elevación sutil + cambio de opacidad/color
+- **Active**: Pressed state con transform reducido
+- **Disabled**: Opacidad 50% + cursor not-allowed
+- **Loading**: Spinner + texto "Cargando..."
+
+---
+
+## 📏 SISTEMA DE ESPACIADO
+
+### **Espaciado Base**
+```css
+--radius: 0.75rem;               /* 12px - Radio estándar */
+```
+
+### **Escala de Espaciado (Tailwind Compatible)**
+- **xs**: 0.25rem (4px)
+- **sm**: 0.5rem (8px)
+- **md**: 1rem (16px)
+- **lg**: 1.5rem (24px)
+- **xl**: 2rem (32px)
+- **2xl**: 2.5rem (40px)
+
+### **Border Radius Personalizado**
+```css
+.rounded-podenza {
+  border-radius: var(--radius);        /* 12px estándar */
+}
+
+.rounded-podenza-lg {
+  border-radius: 1rem;                 /* 16px para tarjetas */
+}
+
+.rounded-podenza-xl {
+  border-radius: 1.25rem;              /* 20px para modales */
+}
+```
+
+---
+
+## 🏗️ SISTEMA DE COMPONENTES
+
+### **Tarjetas (Cards)**
+```css
+/* Implementación base */
+.card {
+  background: var(--card);             /* #FFFFFF */
+  color: var(--card-foreground);       /* #2C3E2B */
+  border-radius: var(--radius);        /* 12px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);     /* #D1D5DB */
+}
+```
+
+### **Sidebar - Sistema Implementado**
+```css
+/* Mejoras específicas implementadas para sidebar */
+[data-sidebar="menu-button"] svg {
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0;
+}
+
+/* Estado activo */
+[data-sidebar="menu-button"][data-active="true"] {
+  background-color: var(--primary) !important;    /* #E7FF8C */
+  color: var(--primary-foreground) !important;    /* #2C3E2B */
   font-weight: 600;
 }
+
+/* Estado colapsado */
+.group[data-collapsible="icon"] [data-sidebar="menu-button"] {
+  justify-content: center !important;
+  padding: 8px !important;
+}
 ```
 
-### Focus States
+### **Inputs y Formularios**
 ```css
-*:focus-visible {
-  outline: 2px solid #E7FF8C;
-  outline-offset: 2px;
+input, textarea {
+  border: 1px solid var(--input);      /* #D1D5DB */
+  border-radius: var(--radius);        /* 12px */
+  background: var(--background);       /* #F5F5F5 */
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--ring);           /* #E7FF8C */
+  box-shadow: 0 0 0 2px var(--ring);
 }
 ```
 
 ---
 
-## 📱 Responsive Breakpoints
+## 🎭 ICONOGRAFÍA
 
+### **Sistema de Iconos**
+- **Biblioteca**: Lucide React (implementado)
+- **Tamaño estándar**: 20px (sidebar), 16px (inline), 24px (headers)
+- **Peso**: Outline style para consistencia
+- **Color**: Hereda del texto contenedor
+
+### **Iconos de Estado**
+- **Éxito**: CheckCircle - Color `#10B981`
+- **Error**: XCircle - Color `#EF4444`
+- **Advertencia**: AlertTriangle - Color `#F59E0B`
+- **Info**: Info - Color `var(--primary)`
+
+---
+
+## 📱 RESPONSIVE DESIGN
+
+### **Breakpoints**
 ```css
-/* Mobile First Approach */
---breakpoint-sm: 640px;   /* Móviles grandes */
---breakpoint-md: 768px;   /* Tablets */
---breakpoint-lg: 1024px;  /* Laptops */
---breakpoint-xl: 1280px;  /* Desktops */
---breakpoint-2xl: 1536px; /* Pantallas grandes */
+/* Tailwind CSS breakpoints utilizados */
+sm: 640px    /* Tablet portrait */
+md: 768px    /* Tablet landscape */
+lg: 1024px   /* Desktop small */
+xl: 1280px   /* Desktop large */
+2xl: 1536px  /* Desktop XL */
 ```
 
-### Comportamiento Responsive
-- **< 768px:** Sidebar colapsa a hamburger menu
-- **768px - 1024px:** Sidebar se mantiene pero puede colapsarse
-- **> 1024px:** Sidebar siempre visible
+### **Sidebar Responsive**
+- **Desktop**: Sidebar expandido por defecto
+- **Tablet**: Sidebar colapsible
+- **Mobile**: Sidebar como overlay
 
 ---
 
-## 🗂️ Estructura de Archivos a Modificar
+## 🎨 GUIDELINES DE APLICACIÓN
 
-### 1. Configuración Global de Estilos
-```
-apps/web/styles/
-├── globals.css          # Actualizar con nuevas variables CSS
-├── theme.css            # Definir tema Podenza
-├── shadcn-ui.css        # Adaptar componentes Shadcn
-└── makerkit.css         # Estilos específicos de Makerkit
-```
+### **Regla 60-30-10**
+- **60%**: Colores neutros (grises, blancos) para estructura
+- **30%**: Color primario (#E7FF8C) para elementos de marca
+- **10%**: Color accent (#FF931E) para CTAs y elementos críticos
 
-### 2. Componentes a Actualizar
-```
-apps/web/components/
-├── app-logo.tsx         # Actualizar logo con colores Podenza
-├── personal-account-dropdown-container.tsx
-└── root-providers.tsx   # Importar fuentes
-
-apps/web/app/home/_components/
-├── home-sidebar.tsx     # Aplicar estilos de sidebar
-├── home-menu-navigation.tsx
-└── home-mobile-navigation.tsx
-```
-
-### 3. Configuración
-```
-apps/web/config/
-├── app.config.ts        # Actualizar nombre y colores
-└── navigation.config.tsx # Iconos y estructura
-```
-
----
-
-## 🎨 Variables CSS Globales (globals.css)
-
+### **Consistencia Visual**
 ```css
-@layer base {
-  :root {
-    /* Fuentes */
-    --font-heading: 'Circular Std', 'Circular', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Sofia Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    
-    /* Colores Base */
-    --background: #FAFAFA;
-    --foreground: #2C3E2B;
-    --card: #FFFFFF;
-    --card-foreground: #2C3E2B;
-    
-    /* Colores de Marca */
-    --primary: #E7FF8C;
-    --primary-foreground: #2C3E2B;
-    --secondary: #FFF4ED;
-    --secondary-foreground: #FF931E;
-    
-    /* Colores de Acción */
-    --accent: #FF931E;
-    --accent-foreground: #FFFFFF;
-    
-    /* Colores de Texto */
-    --muted: #F3F4F6;
-    --muted-foreground: #6B7280;
-    
-    /* Bordes */
-    --border: #E5E5E5;
-    --input: #E5E5E5;
-    --ring: #E7FF8C;
-    
-    /* Radius */
-    --radius: 12px;
-  }
+/* Utilities implementadas para consistencia */
+.text-podenza-primary {
+  color: var(--primary);
 }
+
+.bg-podenza-primary {
+  background-color: var(--primary);
+}
+
+.text-podenza-action {
+  color: var(--accent);
+}
+
+.bg-podenza-action {
+  background-color: var(--accent);
+}
+```
+
+### **Accesibilidad**
+- **Contraste mínimo**: 4.5:1 para texto normal
+- **Contraste mejorado**: 7:1 para texto pequeño
+- **Focus visible**: Ring de 2px con color `var(--ring)`
+- **Estados hover**: Transiciones de 0.2s ease
+
+---
+
+## 🔧 IMPLEMENTACIÓN TÉCNICA
+
+### **Variables CSS Personalizadas**
+```css
+/* Todas las variables están centralizadas en shadcn-ui.css */
+:root {
+  /* Variables de color definidas */
+  /* Variables de tipografía definidas */
+  /* Variables de espaciado definidas */
+}
+
+.dark {
+  /* Override para modo oscuro */
+}
+```
+
+### **Uso en Componentes React**
+```tsx
+// ✅ CORRECTO - Usar clases utility implementadas
+<button className="btn-podenza-primary">
+  Solicitar Crédito
+</button>
+
+<div className="bg-podenza-primary text-podenza-action rounded-podenza-lg">
+  <h2 className="font-heading">Título</h2>
+</div>
+
+// ❌ INCORRECTO - Colores hardcoded
+<button style={{ backgroundColor: '#FF931E' }}>
+  Botón
+</button>
+```
+
+### **Componentes Shadcn UI Customizados**
+```tsx
+// Todos los componentes de Shadcn UI heredan automáticamente
+// las variables CSS definidas en shadcn-ui.css
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+
+// Los componentes ya tienen los colores de PODENZA aplicados
+<Button variant="default">Botón Primario</Button>
+<Button variant="secondary">Botón Secundario</Button>
 ```
 
 ---
 
-## 🔧 Implementación en Componentes Next.js
+## 📋 CHECKLIST DE BRANDING
 
-### Ejemplo: AppLogo Component
-```typescript
-// apps/web/components/app-logo.tsx
-function LogoImage({ className }: { className?: string }) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <div 
-        className="w-10 h-10 rounded-xl flex items-center justify-center"
-        style={{ backgroundColor: '#E7FF8C' }}
-      >
-        <span 
-          className="font-bold text-xl"
-          style={{ 
-            fontFamily: "'Circular Std', sans-serif",
-            color: '#2C3E2B'
-          }}
-        >
-          P
-        </span>
-      </div>
-      <span 
-        className="font-bold text-[22px]"
-        style={{ 
-          fontFamily: "'Circular Std', sans-serif",
-          color: '#2C3E2B',
-          letterSpacing: '-0.02em'
-        }}
-      >
-        PODENZA
-      </span>
-    </div>
-  );
-}
-```
+### **Implementación Correcta**
+- [ ] Variables CSS de PODENZA utilizadas en lugar de colores hardcoded
+- [ ] Botones usando clases `.btn-podenza-primary` y `.btn-podenza-secondary`
+- [ ] Sidebar con estilos específicos de PODENZA implementados
+- [ ] Typography usando `font-heading` y `font-sans`
+- [ ] Border radius usando `--radius` y variantes
+- [ ] Dark mode implementado con paleta consistente
+- [ ] Iconos de Lucide React con tamaños estándar
+- [ ] Transiciones suaves (0.2s ease) en elementos interactivos
+- [ ] Focus states visibles con `var(--ring)`
+- [ ] Contraste de color cumpliendo WCAG AA
+- [ ] Responsive design en todos los componentes
+- [ ] Estados hover/active definidos
 
-### Ejemplo: Button Component Update
-```typescript
-// En tus componentes de botones
-const buttonVariants = {
-  default: {
-    backgroundColor: '#FF931E',
-    color: '#FFFFFF',
-    fontFamily: "'Sofia Pro', sans-serif",
-    fontWeight: '600',
-    fontSize: '15px',
-    padding: '12px 24px',
-    borderRadius: '12px',
-  },
-  secondary: {
-    backgroundColor: '#E7FF8C',
-    color: '#2C3E2B',
-    fontFamily: "'Sofia Pro', sans-serif",
-    fontWeight: '600',
-  }
-}
-```
+### **Consistencia de Marca**
+- [ ] Logo PODENZA presente en header/sidebar
+- [ ] Colores primarios (#E7FF8C) y accent (#FF931E) consistentes
+- [ ] Tipografía siguiendo hierarchy definida
+- [ ] Espaciado usando escala establecida
+- [ ] Componentes siguiendo patrones de diseño definidos
 
 ---
 
-## ✅ Checklist de Implementación
-
-### Fase 1: Setup de Fuentes y Colores
-- [ ] Importar Circular Std y Sofia Pro en `layout.tsx`
-- [ ] Actualizar `globals.css` con variables CSS de Podenza
-- [ ] Actualizar `theme.css` con sistema de colores
-- [ ] Configurar `app.config.ts` con nombre "PODENZA"
-
-### Fase 2: Componentes Core
-- [ ] Actualizar `app-logo.tsx` con nuevo logo
-- [ ] Modificar sidebar: `home-sidebar.tsx`
-- [ ] Actualizar header y navegación
-- [ ] Adaptar dropdowns de usuario
-- [ ] Actualizar componentes de botones
-
-### Fase 3: Páginas Principales
-- [ ] Landing page: `app/(marketing)/page.tsx`
-- [ ] Dashboard: `app/home/page.tsx`
-- [ ] Settings: `app/home/settings/page.tsx`
-- [ ] Auth pages: `app/auth/*`
-
-### Fase 4: Componentes UI
-- [ ] Cards y estadísticas
-- [ ] Formularios
-- [ ] Tablas
-- [ ] Modales y dialogs
-- [ ] Toasts y notificaciones
-
-### Fase 5: Testing y Refinamiento
-- [ ] Verificar contraste de accesibilidad (WCAG AA)
-- [ ] Probar en diferentes dispositivos
-- [ ] Validar responsive design
-- [ ] Revisar hover states
-- [ ] Optimizar performance de fuentes
-
----
-
-## 📊 Métricas de Éxito
-
-### Diseño Visual
-- Contraste mínimo 4.5:1 para texto normal
-- Contraste mínimo 3:1 para texto grande
-- Consistencia en uso de colores (60-30-10)
-- Espaciado uniforme según sistema
-
-### Performance
-- Fuentes cargadas en < 1s
-- First Contentful Paint < 1.5s
-- Cumulative Layout Shift < 0.1
-
-### Accesibilidad
-- Score Lighthouse Accessibility > 95
-- Navegación por teclado funcional
-- Focus states visibles
-- Labels apropiados en todos los inputs
-
----
-
-## 🚫 Reglas de NO HACER
-
-1. **NO usar el negro puro (#181A00)** como fondo principal - reservar solo para casos especiales
-2. **NO combinar Circular Std** para texto de párrafo largo - usar Sofia Pro
-3. **NO usar más de 3 colores de acento** en una misma vista
-4. **NO usar gradientes** - mantener colores sólidos
-5. **NO usar opacidades bajas** en texto principal - mínimo 0.87 para #2C3E2B
-6. **NO ignorar el espaciado del sistema** - usar variables definidas
-7. **NO usar border radius diferentes** fuera del sistema establecido
-8. **NO sobrecargar con el color naranja** (#FF931E) - solo para CTAs críticos
-
----
-
-## 📞 Contacto y Revisión
-
-### Proceso de Revisión
-1. Implementar cambios siguiendo especificaciones
-2. Capturar screenshots de componentes
-3. Validar contra mockup de referencia
-4. Solicitar feedback antes de merge
-5. Documentar cualquier desviación del spec
-
-### Prioridades
-**Alta:** Logo, colores principales, tipografía, navegación, botones CTA
-**Media:** Cards, listas, formularios, tablas
-**Baja:** Animaciones, micro-interacciones, estados de carga
-
----
-
-## 🔗 Referencias
-
-- Manual de Marca Podenza (documento fuente)
-- Mockup de referencia (artifact visual)
-- Makerkit Documentation: https://makerkit.dev
-- Circular Std Font: https://fonts.cdnfonts.com/css/circular-std
-- Sofia Pro Font: https://fonts.cdnfonts.com/css/sofia-pro
-
----
-
-**Versión:** 1.0  
-**Fecha:** Marzo 2025  
-**Última actualización:** [Fecha actual]
+Este sistema de branding garantiza la **consistencia visual** y la **identidad sólida** de PODENZA en toda la plataforma, manteniendo la cohesión entre funcionalidades y proporcionando una experiencia de usuario profesional y confiable.

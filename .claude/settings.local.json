@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/freddyrs/OneDrive/**)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

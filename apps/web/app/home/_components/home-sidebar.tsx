@@ -8,6 +8,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarNavigation,
+  useSidebar,
 } from '@kit/ui/shadcn-sidebar';
 
 import { AppLogo } from '~/components/app-logo';

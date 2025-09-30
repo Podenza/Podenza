@@ -32,6 +32,12 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 
   *,
@@ -45,5 +51,185 @@
   input::placeholder,
   textarea::placeholder {
     color: theme(--color-muted-foreground);
+  }
+}
+
+@layer utilities {
+  /* PODENZA Typography Utilities */
+  .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .font-body {
+    font-family: var(--font-sans);
+  }
+
+  /* PODENZA Color Utilities */
+  .text-podenza-primary {
+    color: var(--primary);
+  }
+
+  .bg-podenza-primary {
+    background-color: var(--primary);
+  }
+
+  .text-podenza-action {
+    color: var(--accent);
+  }
+
+  .bg-podenza-action {
+    background-color: var(--accent);
+  }
+
+  /* PODENZA Border Radius Utilities */
+  .rounded-podenza {
+    border-radius: var(--radius);
+  }
+
+  .rounded-podenza-lg {
+    border-radius: 1rem;
+  }
+
+  .rounded-podenza-xl {
+    border-radius: 1.25rem;
+  }
+
+  /* PODENZA Button Styles */
+  .btn-podenza-primary {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    transition: opacity 0.2s ease;
+  }
+
+  .btn-podenza-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-podenza-secondary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-podenza-secondary:hover {
+    background-color: var(--chart-5);
+  }
+
+  /* PODENZA Sidebar Improvements */
+
+  /* Iconos consistentes en sidebar */
+  [data-sidebar="menu-button"] svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0;
+  }
+
+  /* Cuando está colapsado, centrar iconos */
+  .group[data-collapsible="icon"] [data-sidebar="menu-button"] {
+    justify-content: center !important;
+    padding: 8px !important;
+  }
+
+  /* Asegurar que los iconos se mantengan centrados cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="menu-button"] svg {
+    margin: 0 auto;
+  }
+
+  /* Mejorar espaciado del footer cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="footer"] {
+    padding: 8px !important;
+  }
+
+  /* Ocultar completamente el texto cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="menu-button"] span {
+    display: none !important;
+  }
+
+  /* Mejorar la transición del logo */
+  .group[data-collapsible="icon"] [data-sidebar="header"] {
+    padding: 8px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Espaciado consistente para items de menú */
+  [data-sidebar="menu"] {
+    gap: 4px;
+  }
+
+  /* Mejorar hover states */
+  [data-sidebar="menu-button"]:hover {
+    background-color: var(--muted);
+    transition: background-color 0.2s ease;
+  }
+
+  [data-sidebar="menu-button"][data-active="true"] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+    font-weight: 600;
+  }
+
+  [data-sidebar="menu-button"][data-active="true"]:hover {
+    background-color: var(--chart-5) !important;
+  }
+
+  /* Mejorar dropdown de perfil cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="footer"] > * {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  /* Ocultar texto en elementos del footer cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="footer"] span:not([data-keep-collapsed]) {
+    display: none !important;
+  }
+
+  /* Asegurar que los tooltips funcionen correctamente */
+  .group[data-collapsible="icon"] [data-sidebar="menu-button"] {
+    position: relative;
+  }
+
+  /* Mejorar el ancho del sidebar colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="sidebar"] {
+    width: 64px !important;
+  }
+
+  /* Centrar contenido del sidebar cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="content"] {
+    align-items: center;
+  }
+
+  /* Mejorar transiciones */
+  [data-sidebar="menu-button"] {
+    transition: all 0.2s ease;
+  }
+
+  [data-sidebar="header"],
+  [data-sidebar="footer"],
+  [data-sidebar="content"] {
+    transition: padding 0.2s ease;
+  }
+
+  /* Asegurar que el logo se centre correctamente cuando está colapsado */
+  .group[data-collapsible="icon"] [data-sidebar="header"] > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

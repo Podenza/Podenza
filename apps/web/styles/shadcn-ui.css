@@ -1,104 +1,121 @@
 /*
-* shadcn-ui.css
+* PODENZA BRAND SYSTEM
 *
-* Update the below to customize your Shadcn UI CSS Colors.
-* Refer to https://ui.shadcn.com/themes for applying new colors.
-* NB: apply the hsl function to the colors copied from the theme.
- */
+* Implementing Podenza brand colors according to branding manual
+* 60% Base colors - 30% Brand accent - 10% Action color
+*/
 
 @layer base {
     :root {
+        /* PODENZA TYPOGRAPHY SYSTEM - Using existing font system */
         --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         --font-heading: var(--font-sans);
 
-        --background: var(--color-white);
-        --foreground: var(--color-neutral-950);
+        /* PODENZA BASE COLORS (60% - Backgrounds & Structure) */
+        --background: #FAFAFA;          /* General app background */
+        --foreground: #2C3E2B;          /* Primary text color */
 
-        --card: var(--color-white);
-        --card-foreground: var(--color-neutral-950);
+        --card: #FFFFFF;                /* Cards and containers */
+        --card-foreground: #2C3E2B;
 
-        --popover: var(--color-white);
-        --popover-foreground: var(--color-neutral-950);
+        --popover: #FFFFFF;
+        --popover-foreground: #2C3E2B;
 
-        --primary: var(--color-neutral-950);
-        --primary-foreground: var(--color-white);
+        /* PODENZA BRAND COLORS (30% - Accent & Active States) */
+        --primary: #E7FF8C;             /* Podenza green lime - Pantone 2295 C */
+        --primary-foreground: #2C3E2B;
 
-        --secondary: oklch(96.76% 0.0013 286.38);
-        --secondary-foreground: oklch(21.03% 0.0318 264.65);
+        --secondary: #FFF4ED;           /* Orange very soft for backgrounds */
+        --secondary-foreground: #FF931E;
 
-        --muted: oklch(96.71% 0.0029 264.54);
-        --muted-foreground: oklch(55.13% 0.0233 264.36);
+        /* PODENZA ACTION COLORS (10% - CTAs & Critical Elements) */
+        --accent: #FF931E;              /* Orange - Pantone 1495 C */
+        --accent-foreground: #FFFFFF;
 
-        --accent: oklch(96.76% 0.0013 286.38);
-        --accent-foreground: oklch(21.03% 0.0318 264.65);
+        /* PODENZA TEXT HIERARCHY */
+        --muted: #F3F4F6;               /* Very subtle backgrounds */
+        --muted-foreground: #6B7280;    /* Secondary text */
 
-        --destructive: var(--color-red-500);
-        --destructive-foreground: var(--color-white);
+        /* PODENZA BORDERS & INPUTS */
+        --border: #E5E5E5;              /* Standard borders */
+        --input: #E5E5E5;
+        --ring: #E7FF8C;                /* Focus ring - brand green */
 
-        --border: var(--color-gray-100);
-        --input: var(--color-gray-200);
-        --ring: var(--color-neutral-800);
+        /* PODENZA SPACING & RADIUS SYSTEM */
+        --radius: 0.75rem;              /* 12px - standard radius */
 
-        --radius: 0.5rem;
+        /* PODENZA CHART COLORS */
+        --chart-1: #E7FF8C;             /* Brand green lime */
+        --chart-2: #FF931E;             /* Brand orange */
+        --chart-3: #AFDB12;             /* Green medium variant */
+        --chart-4: #FFF4ED;             /* Orange soft */
+        --chart-5: #DEFF70;             /* Green hover variant */
 
-        --chart-1: var(--color-orange-400);
-        --chart-2: var(--color-teal-600);
-        --chart-3: var(--color-green-800);
-        --chart-4: var(--color-yellow-200);
-        --chart-5: var(--color-orange-200);
+        /* PODENZA SIDEBAR SYSTEM */
+        --sidebar-background: #FFFFFF;
+        --sidebar-foreground: #6B7280;
+        --sidebar-primary: #2C3E2B;
+        --sidebar-primary-foreground: #FFFFFF;
+        --sidebar-accent: #E7FF8C;      /* Active nav items */
+        --sidebar-accent-foreground: #2C3E2B;
+        --sidebar-border: #E5E5E5;
+        --sidebar-ring: #E7FF8C;
 
-        --sidebar-background: var(--color-neutral-50);
-        --sidebar-foreground: oklch(37.05% 0.012 285.8);
-        --sidebar-primary: var(--color-neutral-950);
-        --sidebar-primary-foreground: var(--color-white);
-        --sidebar-accent: var(--color-neutral-100);
-        --sidebar-accent-foreground: var(--color-neutral-950);
-        --sidebar-border: var(--border);
-        --sidebar-ring: var(--color-blue-500);
+        /* ADDITIONAL PODENZA COLORS (Reference) */
+        --destructive: #DC2626;         /* Red for errors */
+        --destructive-foreground: #FFFFFF;
+
+        /* PODENZA TEXT VARIANTS */
+        --text-tertiary: #9CA3AF;       /* Tertiary text */
+        --border-light: #F3F4F6;        /* Very subtle borders */
+        --border-medium: #E5E5E5;       /* Standard borders */
     }
 
     .dark {
-        --background: var(--color-neutral-900);
-        --foreground: var(--color-white);
+        /* PODENZA DARK MODE */
+        --background: #181A00;          /* Podenza dark green - only for dark mode */
+        --foreground: #FFFFFF;
 
-        --card: var(--color-neutral-900);
-        --card-foreground: var(--color-white);
+        --card: #2C3E2B;
+        --card-foreground: #FFFFFF;
 
-        --popover: var(--color-neutral-900);
-        --popover-foreground: var(--color-white);
+        --popover: #2C3E2B;
+        --popover-foreground: #FFFFFF;
 
-        --primary: var(--color-white);
-        --primary-foreground: var(--color-neutral-900);
+        --primary: #E7FF8C;             /* Brand green remains consistent */
+        --primary-foreground: #181A00;
 
-        --secondary: var(--color-neutral-800);
-        --secondary-foreground: oklch(98.43% 0.0017 247.84);
+        --secondary: #2C3E2B;
+        --secondary-foreground: #E7FF8C;
 
-        --muted: var(--color-neutral-800);
-        --muted-foreground: oklch(71.19% 0.0129 286.07);
+        --muted: #2C3E2B;
+        --muted-foreground: #9CA3AF;
 
-        --accent: var(--color-neutral-800);
-        --accent-foreground: oklch(98.48% 0 0);
+        --accent: #FF931E;              /* Orange remains consistent */
+        --accent-foreground: #FFFFFF;
 
-        --destructive: var(--color-red-700);
-        --destructive-foreground: var(--color-white);
+        --destructive: #EF4444;
+        --destructive-foreground: #FFFFFF;
 
-        --border: var(--color-neutral-800);
-        --input: var(--color-neutral-700);
-        --ring: oklch(87.09% 0.0055 286.29);
+        --border: #374151;
+        --input: #374151;
+        --ring: #E7FF8C;
 
-        --chart-1: var(--color-blue-600);
-        --chart-2: var(--color-emerald-400);
-        --chart-3: var(--color-orange-400);
-        --chart-4: var(--color-purple-500);
-        --chart-5: var(--color-pink-500);
+        /* PODENZA DARK CHART COLORS */
+        --chart-1: #E7FF8C;
+        --chart-2: #FF931E;
+        --chart-3: #AFDB12;
+        --chart-4: #FFF4ED;
+        --chart-5: #DEFF70;
 
-        --sidebar-background: var(--color-neutral-900);
-        --sidebar-foreground: var(--color-white);
-        --sidebar-primary: var(--color-blue-500);
-        --sidebar-primary-foreground: var(--color-white);
-        --sidebar-accent: var(--color-neutral-800);
-        --sidebar-accent-foreground: var(--color-white);
-        --sidebar-border: var(--border);
-        --sidebar-ring: var(--color-blue-500);
+        /* PODENZA DARK SIDEBAR */
+        --sidebar-background: #181A00;
+        --sidebar-foreground: #9CA3AF;
+        --sidebar-primary: #FFFFFF;
+        --sidebar-primary-foreground: #181A00;
+        --sidebar-accent: #E7FF8C;
+        --sidebar-accent-foreground: #181A00;
+        --sidebar-border: #374151;
+        --sidebar-ring: #E7FF8C;
     }
 }

@@ -12,7 +12,7 @@
         --font-heading: var(--font-sans);
 
         /* PODENZA BASE COLORS (60% - Backgrounds & Structure) */
-        --background: #FAFAFA;          /* General app background */
+        --background: #F5F5F5;          /* General app background - slightly darker */
         --foreground: #2C3E2B;          /* Primary text color */
 
         --card: #FFFFFF;                /* Cards and containers */
@@ -33,12 +33,12 @@
         --accent-foreground: #FFFFFF;
 
         /* PODENZA TEXT HIERARCHY */
-        --muted: #F3F4F6;               /* Very subtle backgrounds */
-        --muted-foreground: #6B7280;    /* Secondary text */
+        --muted: #F0F0F0;               /* Very subtle backgrounds - better contrast */
+        --muted-foreground: #5A6B57;    /* Secondary text - darker for better readability */
 
         /* PODENZA BORDERS & INPUTS */
-        --border: #E5E5E5;              /* Standard borders */
-        --input: #E5E5E5;
+        --border: #D1D5DB;              /* Standard borders - darker for visibility */
+        --input: #D1D5DB;
         --ring: #E7FF8C;                /* Focus ring - brand green */
 
         /* PODENZA SPACING & RADIUS SYSTEM */

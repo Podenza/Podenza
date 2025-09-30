@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Search, Eye, Edit, Trash2, Copy, X, ChevronRight, TrendingUp, Clock, CheckCircle, XCircle, AlertCircle, FileText, Calendar, Filter } from 'lucide-react';
+import { SolicitudWorkbenchModal } from './solicitud-workbench-modal';
 
 // Estados de las solicitudes con colores del branding existente
 const ESTADOS = [
@@ -52,6 +53,8 @@ export function SolicitudesDashboard() {
   const [fechaDesde, setFechaDesde] = useState('');
   const [fechaHasta, setFechaHasta] = useState('');
   const [mostrarFiltros, setMostrarFiltros] = useState(false);
+  const [modalWorkbenchOpen, setModalWorkbenchOpen] = useState(false);
+  const [solicitudWorkbench, setSolicitudWorkbench] = useState<typeof solicitudesEjemplo[0] | null>(null);
 
   const estadisticas = calcularEstadisticas(solicitudes);
 
@@ -84,10 +87,15 @@ export function SolicitudesDashboard() {
     setSolicitudSeleccionada(null);
   };
 
+  const handleEditarSolicitud = (solicitud: typeof solicitudesEjemplo[0]) => {
+    setSolicitudWorkbench(solicitud);
+    setModalWorkbenchOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto mb-8">
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="flex gap-3">
             <div className="relative flex-1">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
@@ -96,7 +104,7 @@ export function SolicitudesDashboard() {
                 placeholder="Buscar por ID, cédula, cliente, asesor, afiliado, vitrina, banco, monto o producto..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-foreground bg-card"
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-foreground bg-card shadow-sm"
               />
             </div>
             <button
@@ -156,57 +164,59 @@ export function SolicitudesDashboard() {
       </div>
 
       <div className="max-w-7xl mx-auto mb-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-card rounded-xl p-5 border border-border">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-muted-foreground text-sm">Total</span>
-              <FileText className="w-4 h-4 text-muted-foreground" />
-            </div>
-            <p className="text-3xl font-bold text-foreground">
-              {estadisticas.total}
-            </p>
-          </div>
-
-          <div className="bg-card rounded-xl p-5 border border-border">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-muted-foreground text-sm">En Viabilidad</span>
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Clock className="w-4 h-4 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground font-medium">Total</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{estadisticas.total}</p>
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-primary" />
               </div>
             </div>
-            <p className="text-3xl font-bold text-foreground">
-              {estadisticas.viabilidad}
-            </p>
           </div>
 
-          <div className="bg-card rounded-xl p-5 border border-border">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-muted-foreground text-sm">Pre-Aprobado</span>
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-primary" />
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground font-medium">En Viabilidad</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{estadisticas.viabilidad}</p>
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <Clock className="w-6 h-6 text-accent" />
               </div>
             </div>
-            <p className="text-3xl font-bold text-foreground">
-              {estadisticas.pre_aprobado}
-            </p>
           </div>
 
-          <div className="bg-card rounded-xl p-5 border border-border">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-muted-foreground text-sm">Aprobado</span>
-              <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
-                <CheckCircle className="w-4 h-4 text-accent" />
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground font-medium">Pre-Aprobado</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{estadisticas.pre_aprobado}</p>
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <AlertCircle className="w-6 h-6 text-primary" />
               </div>
             </div>
-            <p className="text-3xl font-bold text-foreground">
-              {estadisticas.aprobado}
-            </p>
+          </div>
+
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground font-medium">Aprobado</p>
+                <p className="text-3xl font-bold text-foreground mt-1">{estadisticas.aprobado}</p>
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-green-600" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="bg-card rounded-xl border border-border overflow-hidden">
+        <div className="bg-card rounded-xl border border-border shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-muted/30 border-b border-border">
@@ -322,6 +332,7 @@ export function SolicitudesDashboard() {
                           <button
                             className="p-2 rounded-lg hover:bg-accent/10 transition-colors group"
                             title="Editar"
+                            onClick={() => handleEditarSolicitud(sol)}
                           >
                             <Edit className="w-4 h-4 text-muted-foreground group-hover:text-accent" />
                           </button>
@@ -481,6 +492,13 @@ export function SolicitudesDashboard() {
           </div>
         </div>
       )}
+
+      {/* Modal Workbench */}
+      <SolicitudWorkbenchModal
+        open={modalWorkbenchOpen}
+        onOpenChange={setModalWorkbenchOpen}
+        solicitud={solicitudWorkbench}
+      />
     </div>
   );
 }

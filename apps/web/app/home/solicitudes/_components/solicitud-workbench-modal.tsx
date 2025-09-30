@@ -21,17 +21,16 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-} from '@kit/ui/shadcn/dialog';
-import { Button } from '@kit/ui/shadcn/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@kit/ui/shadcn/card';
-import { Badge } from '@kit/ui/shadcn/badge';
-import { Progress } from '@kit/ui/shadcn/progress';
-import { Input } from '@kit/ui/shadcn/input';
-import { Label } from '@kit/ui/shadcn/label';
-import { Textarea } from '@kit/ui/shadcn/textarea';
-import { RadioGroup, RadioGroupItem } from '@kit/ui/shadcn/radio-group';
-import { Checkbox } from '@kit/ui/shadcn/checkbox';
-import { Separator } from '@kit/ui/shadcn/separator';
+} from '@kit/ui/dialog';
+import { Button } from '@kit/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@kit/ui/card';
+import { Badge } from '@kit/ui/badge';
+import { Input } from '@kit/ui/input';
+import { Label } from '@kit/ui/label';
+import { Textarea } from '@kit/ui/textarea';
+import { RadioGroup, RadioGroupItem } from '@kit/ui/radio-group';
+import { Checkbox } from '@kit/ui/checkbox';
+import { Separator } from '@kit/ui/separator';
 
 interface SolicitudWorkbenchModalProps {
   open: boolean;
@@ -173,7 +172,12 @@ export function SolicitudWorkbenchModal({ open, onOpenChange, solicitud }: Solic
                         Paso {pasoActual} de {PASOS_PROCESO.length} • {progresoActual}% completado
                       </span>
                     </div>
-                    <Progress value={progresoActual} className="mb-4 h-2" />
+                    <div className="w-full bg-border rounded-full h-2 mb-4">
+                      <div
+                        className="bg-gradient-to-r from-primary to-chart-3 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${progresoActual}%` }}
+                      />
+                    </div>
 
                     {/* Steps Horizontales */}
                     <div className="flex justify-between items-center relative">
